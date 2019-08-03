@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float gravity;
     public float walkSpeed;
     public float jumpSpeed;
+
+    private bool isGrounded = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +25,26 @@ public class Movement : MonoBehaviour
     {
         //get axis, should work for keyboard or controller
         float xDir = Input.GetAxis("Horizontal");
-        float yDir = gravity * Time.deltaTime;
+        float yDir = 0;
+        if (isGrounded)
+        {
+            if (Input.GetAxis("Jump") != 0 && isGrounded)
+            {
+                isGrounded = false;
+                yDir = jumpSpeed * Input.GetAxis("Jump");
+                Debug.Log(Input.GetAxis("Jump"));
+            }
+
+        }
 
         //translate character based on speed
-        xDir *= (walkSpeed * Time.deltaTime);
-        GetComponent<Rigidbody2D>().velocity = new Vector3(xDir, yDir, 0);
+        xDir *= walkSpeed;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(xDir, yDir));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision);
+        isGrounded = true;
     }
 }
