@@ -44,6 +44,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //todo: better isGrounded detection
         Debug.Log(collision);
         isGrounded = true;
     }
