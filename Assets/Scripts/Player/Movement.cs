@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _bodyCollider;
     private Rigidbody2D _rigidBody2D;
+    private SpriteRenderer _sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _bodyCollider = GetComponent<BoxCollider2D>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
 
         animSpeedAtStart = _animator.speed;
         gravityScaleAtStart = _rigidBody2D.gravityScale;
@@ -58,9 +60,21 @@ public class Movement : MonoBehaviour
                 KillPlayer();
                 break;
             case "Enemy":
-                KillPlayer();
-                break;
+                //get location of bottom of player
+                float playerBottom = _rigidBody2D.transform.position.y - _sprite.bounds.size.y / 2;
+                SpriteRenderer enemySprite = collision.gameObject.GetComponent<SpriteRenderer>();
+                float enemyTop = collision.transform.position.y + enemySprite.bounds.size.y / 2;
 
+                if (Mathf.Abs(playerBottom - enemyTop) < .25f)
+                {
+                    Jump();
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    KillPlayer();
+                }
+                break;
         }
     }
 
@@ -85,21 +99,24 @@ public class Movement : MonoBehaviour
     {
         //get axis, should work for keyboard or controller
         float xDir = Input.GetAxis("Horizontal");
-        float yDir = 0;
 
-        if (isGrounded)
+
+        if (Input.GetButton("Jump") && isGrounded)
         {
-            if (Input.GetButton("Jump") && isGrounded)
-            {
-                isGrounded = false;
-                yDir = jumpSpeed * Input.GetAxis("Jump");
-                _rigidBody2D.velocity += new Vector2(0, yDir);
-            }
+            Jump();
         }
 
         //translate character based on speed
         xDir *= walkSpeed;
         _rigidBody2D.velocity = new Vector2(xDir, _rigidBody2D.velocity.y);
+    }
+
+    private void Jump()
+    {
+        float yDir = 0;
+        isGrounded = false;
+        yDir = jumpSpeed;
+        _rigidBody2D.velocity += new Vector2(0, yDir);
     }
 
     private void KillPlayer()
