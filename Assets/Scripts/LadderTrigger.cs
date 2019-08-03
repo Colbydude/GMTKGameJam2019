@@ -28,10 +28,12 @@ public class LadderTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(player.transform.position, transform.position) < 2) {
-            _renderer.enabled = true;
-        } else {
-            _renderer.enabled = false;
+        if (player != null) {
+            if (Vector2.Distance(player.transform.position, transform.position) < 2) {
+                _renderer.enabled = true;
+            } else {
+                _renderer.enabled = false;
+            }
         }
     }
 }
