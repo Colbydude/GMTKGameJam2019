@@ -1,0 +1,595 @@
+fileFormatVersion: 2
+guid: af0a88a8be79a0c46959924c22aa7938
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1686003790747694668
+    second: Walk_With_Ladder_Sheet_0
+  - first:
+      213: 7243551920569154923
+    second: Walk_With_Ladder_Sheet_1
+  - first:
+      213: 7736795250237565786
+    second: Walk_With_Ladder_Sheet_2
+  - first:
+      213: -2452823638630073347
+    second: Walk_With_Ladder_Sheet_3
+  - first:
+      213: -1617256564712087344
+    second: Walk_With_Ladder_Sheet_4
+  - first:
+      213: 5719226105062328564
+    second: Walk_With_Ladder_Sheet_5
+  - first:
+      213: 7167150110143548883
+    second: Walk_With_Ladder_Sheet_6
+  - first:
+      213: -1463790011433717284
+    second: Walk_With_Ladder_Sheet_7
+  - first:
+      213: -2820407714181307791
+    second: Walk_With_Ladder_Sheet_8
+  - first:
+      213: -6261333808782981805
+    second: Walk_With_Ladder_Sheet_9
+  - first:
+      213: -280001676537397110
+    second: Walk_With_Ladder_Sheet_10
+  - first:
+      213: -9088998027002655668
+    second: Walk_With_Ladder_Sheet_11
+  - first:
+      213: 720032577721969258
+    second: Walk_With_Ladder_Sheet_12
+  - first:
+      213: -4561595813764920824
+    second: Walk_With_Ladder_Sheet_13
+  - first:
+      213: 1861133202555065465
+    second: Walk_With_Ladder_Sheet_14
+  - first:
+      213: 7858859036073196714
+    second: Walk_With_Ladder_Sheet_15
+  - first:
+      213: -8377789955523965926
+    second: Walk_With_Ladder_Sheet_16
+  - first:
+      213: -146209871439481158
+    second: Walk_With_Ladder_Sheet_17
+  - first:
+      213: 1550630889387851427
+    second: Walk_With_Ladder_Sheet_18
+  - first:
+      213: -4678955020158513710
+    second: Walk_With_Ladder_Sheet_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 208
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b25cc4b0e2ee34c863a33abd814671
+      internalID: -1686003790747694668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 207
+        width: 96
+        height: 65
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d998adca2236e4b449b81e15a41ee5ff
+      internalID: 7243551920569154923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 205
+        width: 94
+        height: 68
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457ffbba45791f34d9ae3769fb6100e7
+      internalID: 7736795250237565786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 205
+        width: 94
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dde540c0a7065740bb24fe8b6fd770b
+      internalID: -2452823638630073347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 205
+        width: 94
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb8ab12105171b4a8fbad9a9661a638
+      internalID: -1617256564712087344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 136
+        width: 95
+        height: 70
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7819bba26b9ab4ca8a3449e1e64353
+      internalID: 5719226105062328564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 137
+        width: 97
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8213b67ef4846f49870c79d94a64e06
+      internalID: 7167150110143548883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 138
+        width: 97
+        height: 67
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24428e151f40d1409ec868b155a1320
+      internalID: -1463790011433717284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 139
+        width: 98
+        height: 65
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d995b0a4cc52c4f90a0eb109abb337
+      internalID: -2820407714181307791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 139
+        width: 97
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fe1f3e71f7f654a8b64e6c3555ed1b
+      internalID: -6261333808782981805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 71
+        width: 96
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d4a26e1aa07db41a2094566cf66126
+      internalID: -280001676537397110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 70
+        width: 96
+        height: 65
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df5bffc0e5eeec448dfd2a415ee1c6f
+      internalID: -9088998027002655668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 68
+        width: 94
+        height: 68
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5843e2ccf17539645bd4415241be6f0a
+      internalID: 720032577721969258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 68
+        width: 94
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447a0cec7b6f2d8489063fd78e5846b9
+      internalID: -4561595813764920824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 68
+        width: 94
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a927df5683c9b242a9be4fd2f6825d2
+      internalID: 1861133202555065465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 95
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9935e5eed2cf934893a1cfe1f9bd4b3
+      internalID: 7858859036073196714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 97
+        height: 69
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c37ceb5d5bb874d92a37383207c6f5
+      internalID: -8377789955523965926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 97
+        height: 68
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93a1593be1f7404baa5c7403ff47511
+      internalID: -146209871439481158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1
+        width: 98
+        height: 66
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc00f39e0d86dac4aa0ed8da53332340
+      internalID: 1550630889387851427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_With_Ladder_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 2
+        width: 97
+        height: 64
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77dc7427c437c6844a8ea5bb5d8a63bc
+      internalID: -4678955020158513710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

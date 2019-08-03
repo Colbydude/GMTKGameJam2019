@@ -174,7 +174,11 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(_rigidBody2D.velocity.x), transform.localScale.y);
 
             if (!isClimbing) {
-                _animator.Play("PlayerMove");
+                if (ladderInstance != null) {
+                    _animator.Play("PlayerMove");
+                } else {
+                    _animator.Play("PlayerMoveLadder");
+                }
             }
         } else {
             if (!isClimbing) {
