@@ -8,14 +8,14 @@ public class Movement : MonoBehaviour
     public float walkSpeed = 10f;
     public float jumpSpeed = 10f;
     public float climbSpeed = 10f;
-    public GameObject _ladder;
-    public ParticleSystem _deathParticleSystem;
+    public GameObject ladderInstance = null;
+    public ParticleSystem deathParticleSystem;
 
     private float animSpeedAtStart;
     private float gravityScaleAtStart;
     private bool isClimbing = false;
     private bool isGrounded = true;
-    private GameObject ladderInstance = null;
+    public GameObject ladderTriggerInRange;
 
     // Component references.
     private Animator _animator;
@@ -80,18 +80,22 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Ladder.ClimbCollider") {
+        if (collision.gameObject.tag == "Climbable") {
             isClimbing = true;
             _rigidBody2D.velocity = new Vector2(0, 0);
+        } else if (collision.gameObject.tag == "LadderTrigger") {
+            ladderTriggerInRange = collision.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Ladder.ClimbCollider") {
+        if (collision.gameObject.tag == "Climbable") {
             isClimbing = false;
             _animator.speed = animSpeedAtStart;
             _rigidBody2D.gravityScale = gravityScaleAtStart;
+        } else if (collision.gameObject.tag == "LadderTrigger") {
+            ladderTriggerInRange = null;
         }
     }
 
@@ -101,8 +105,7 @@ public class Movement : MonoBehaviour
         float xDir = Input.GetAxis("Horizontal");
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
+        if (Input.GetButtonDown("Jump") && isGrounded) {
             Jump();
         }
 
@@ -121,7 +124,7 @@ public class Movement : MonoBehaviour
 
     private void KillPlayer()
     {
-        ParticleSystem particleSystem = Instantiate(_deathParticleSystem, new Vector3(_rigidBody2D.position.x, _rigidBody2D.position.y, 0), Quaternion.identity);
+        ParticleSystem particleSystem = Instantiate(deathParticleSystem, new Vector3(_rigidBody2D.position.x, _rigidBody2D.position.y, 0), Quaternion.identity);
         particleSystem.Play();
         Destroy(gameObject);
     }
@@ -148,9 +151,15 @@ public class Movement : MonoBehaviour
     private void Action()
     {
         if (Input.GetButtonDown("Action")) {
-            if (ladderInstance == null) {
-                ladderInstance = Instantiate(_ladder, new Vector3(_rigidBody2D.position.x + transform.localScale.x, _rigidBody2D.position.y, 0), Quaternion.identity);
+            if (ladderInstance == null && ladderTriggerInRange == null) {
+                // @TODO: Swing ladder as a weapon.
+            } else if (ladderInstance == null && ladderTriggerInRange != null) {
+                // Spawn ladder in context space.
+                LadderTrigger trigger = ladderTriggerInRange.GetComponent<LadderTrigger>();
+                ladderInstance = trigger.spawnLadder();
             } else {
+                // "Recall" the ladder.
+                Debug.Log("Destroying...");
                 Destroy(ladderInstance);
                 ladderInstance = null;
             }

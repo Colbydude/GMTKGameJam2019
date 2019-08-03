@@ -100,8 +100,8 @@ MonoBehaviour:
   walkSpeed: 5
   jumpSpeed: 7.5
   climbSpeed: 10
-  _ladder: {fileID: 3025490988102835065, guid: 5df531c3cf3bfad4193cd38904f22592, type: 3}
-  _deathParticleSystem: {fileID: 6486591310745657390, guid: 4b4f28285d2baca4583db6b9da2b88c2,
+  ladderInstance: {fileID: 0}
+  deathParticleSystem: {fileID: 6486591310745657390, guid: 4b4f28285d2baca4583db6b9da2b88c2,
     type: 3}
 --- !u!50 &1777114687
 Rigidbody2D:

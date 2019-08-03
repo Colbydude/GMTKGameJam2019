@@ -8,7 +8,8 @@ TagManager:
   - Tilemap_Floor
   - Tilemap_Damage
   - Enemy
-  - Ladder
+  - LadderTrigger
+  - Climbable
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2713720765
+    locked: 0
+  - name: Triggers
+    uniqueID: 3661869089
+    locked: 0
+  - name: Climbable
+    uniqueID: 2581491755
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 605902699
     locked: 0

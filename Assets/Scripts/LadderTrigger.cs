@@ -13,27 +13,55 @@ public class LadderTrigger : MonoBehaviour
         Helicopter
     };
 
+    public GameObject climbableLadderObject;
+    public GameObject bridgeLadderObject;
+
     public GameObject player;
     public TriggerType triggerType = TriggerType.Ladder;
 
     private SpriteRenderer _renderer;
+    private CapsuleCollider2D _triggerCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _triggerCollider = GetComponent<CapsuleCollider2D>();
+
         _renderer.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (player != null) {
-            if (Vector2.Distance(player.transform.position, transform.position) < 2) {
-                _renderer.enabled = true;
-            } else {
-                _renderer.enabled = false;
-            }
+        if (collider.gameObject.tag == "Player") {
+            _renderer.enabled = true;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player") {
+            _renderer.enabled = false;
+        }
+    }
+
+    public GameObject spawnLadder()
+    {
+        Debug.Log("Spawning ladder...");
+        GameObject ladderObject;
+
+        switch (triggerType) {
+            case TriggerType.Ladder:
+                ladderObject = climbableLadderObject;
+            break;
+            case TriggerType.Bridge:
+                ladderObject = bridgeLadderObject;
+            break;
+            default:
+                ladderObject = climbableLadderObject;
+            break;
+        }
+
+        return Instantiate(ladderObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
     }
 }
