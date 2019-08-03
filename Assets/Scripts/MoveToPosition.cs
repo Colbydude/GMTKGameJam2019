@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveToPosition : MonoBehaviour
 {
@@ -25,10 +26,13 @@ public class MoveToPosition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Cllided With: " + collider.gameObject.name);
+        Debug.Log("Collided With: " + collider.gameObject.name);
 
         Transform playerTransform = collider.gameObject.GetComponent<Transform>();
-
         playerTransform.position = new Vector3(xPosition, yPosition, 0);
+
+        if (sceneToGoTo != null && !SceneManager.GetActiveScene().Equals(sceneToGoTo)) {
+            SceneManager.LoadScene(sceneToGoTo.name);
+        }
     }
 }
