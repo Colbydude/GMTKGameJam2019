@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tilemap_Wall
   - Tilemap_Floor
+  - Tilemap_Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
