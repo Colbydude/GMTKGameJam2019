@@ -6,27 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class MoveToPosition : MonoBehaviour
 {
-    [SerializeField] Object sceneToGoTo;
-    [SerializeField] float xPosition;
-    [SerializeField] float yPosition;
+    public Object sceneToGoTo = null;
+    public float xPosition = 0;
+    public float yPosition = 0;
 
-    BoxCollider2D _collider;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private BoxCollider2D _collider;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Collided With: " + collider.gameObject.name);
+        Debug.Log("MoveToPosition Collided With: " + collider.gameObject.name);
 
         Rigidbody2D playerRigidBody = collider.gameObject.GetComponent<Rigidbody2D>();
         playerRigidBody.position = new Vector2(xPosition, yPosition);

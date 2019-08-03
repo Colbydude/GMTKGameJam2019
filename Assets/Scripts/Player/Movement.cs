@@ -4,26 +4,60 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float walkSpeed;
-    public float jumpSpeed;
+    public float walkSpeed = 10f;
+    public float jumpSpeed = 10f;
+    public float climbSpeed = 10f;
 
+    private float animSpeedAtStart;
+    private float gravityScaleAtStart;
+    private bool isClimbing = false;
     private bool isGrounded = true;
 
     private Animator _animator;
+    private BoxCollider2D _bodyCollider;
     private Rigidbody2D _rigidBody2D;
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _bodyCollider = GetComponent<BoxCollider2D>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
+
+        animSpeedAtStart = _animator.speed;
+        gravityScaleAtStart = _rigidBody2D.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
         movePlayer();
+        climb();
         flipSprite();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //todo: better isGrounded detection
+        Debug.Log("Player Collided With: " + collision.gameObject.name);
+        isGrounded = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Ladder.ClimbCollider") {
+            isClimbing = true;
+            _rigidBody2D.velocity = new Vector2(0, 0);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Ladder.ClimbCollider") {
+            isClimbing = false;
+            _animator.speed = animSpeedAtStart;
+            _rigidBody2D.gravityScale = gravityScaleAtStart;
+        }
     }
 
     void movePlayer()
@@ -39,7 +73,6 @@ public class Movement : MonoBehaviour
                 isGrounded = false;
                 yDir = jumpSpeed * Input.GetAxis("Jump");
                 _rigidBody2D.velocity += new Vector2(0, yDir);
-                Debug.Log(Input.GetAxis("Jump"));
             }
         }
 
@@ -48,11 +81,23 @@ public class Movement : MonoBehaviour
         _rigidBody2D.velocity = new Vector2(xDir, _rigidBody2D.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void climb()
     {
-        //todo: better isGrounded detection
-        Debug.Log(collision);
-        isGrounded = true;
+        if (isClimbing) {
+            bool playerHasVerticalSpeed = Mathf.Abs(_rigidBody2D.velocity.y) > Mathf.Epsilon;
+
+            if (playerHasVerticalSpeed) {
+                _animator.speed = animSpeedAtStart;
+            } else {
+                _animator.speed = 0f;
+            }
+
+            float yDir = Input.GetAxis("Vertical") * climbSpeed;
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, yDir);
+            _rigidBody2D.gravityScale = 0;
+
+            _animator.Play("PlayerClimb");
+        }
     }
 
     private void flipSprite()
@@ -61,9 +106,14 @@ public class Movement : MonoBehaviour
 
         if (playerHasHorizontalSpeed) {
             transform.localScale = new Vector2(Mathf.Sign(_rigidBody2D.velocity.x), transform.localScale.y);
-            _animator.Play("PlayerMove");
+
+            if (!isClimbing) {
+                _animator.Play("PlayerMove");
+            }
         } else {
-            _animator.Play("PlayerIdle");
+            if (!isClimbing) {
+                _animator.Play("PlayerIdle");
+            }
         }
     }
 }
