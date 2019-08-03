@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // Config.
     public float walkSpeed = 10f;
     public float jumpSpeed = 10f;
     public float climbSpeed = 10f;
+    public GameObject _ladder;
+    public ParticleSystem _deathParticleSystem;
 
     private float animSpeedAtStart;
     private float gravityScaleAtStart;
     private bool isClimbing = false;
     private bool isGrounded = true;
+    private GameObject ladderInstance = null;
 
-    public ParticleSystem _deathParticleSystem;
-
+    // Component references.
     private Animator _animator;
     private BoxCollider2D _bodyCollider;
     private Rigidbody2D _rigidBody2D;
@@ -35,6 +38,7 @@ public class Movement : MonoBehaviour
     {
         MovePlayer();
         Climb();
+        Action();
         FlipSprite();
     }
 
@@ -44,6 +48,9 @@ public class Movement : MonoBehaviour
         Debug.Log("Player Collided With: " + collision.gameObject.name);
         switch (collision.gameObject.tag)
         {
+            case "Ladder":
+                isGrounded = true;
+                break;
             case "Tilemap_Floor":
                 isGrounded = true;
                 break;
@@ -82,7 +89,7 @@ public class Movement : MonoBehaviour
 
         if (isGrounded)
         {
-            if (Input.GetAxis("Jump") != 0 && isGrounded)
+            if (Input.GetButton("Jump") && isGrounded)
             {
                 isGrounded = false;
                 yDir = jumpSpeed * Input.GetAxis("Jump");
@@ -97,8 +104,8 @@ public class Movement : MonoBehaviour
 
     private void KillPlayer()
     {
-        _deathParticleSystem.transform.position = new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y);
-        _deathParticleSystem.Play();
+        ParticleSystem particleSystem = Instantiate(_deathParticleSystem, new Vector3(_rigidBody2D.position.x, _rigidBody2D.position.y, 0), Quaternion.identity);
+        particleSystem.Play();
         Destroy(gameObject);
     }
 
@@ -118,6 +125,18 @@ public class Movement : MonoBehaviour
             _rigidBody2D.gravityScale = 0;
 
             _animator.Play("PlayerClimb");
+        }
+    }
+
+    private void Action()
+    {
+        if (Input.GetButtonDown("Action")) {
+            if (ladderInstance == null) {
+                ladderInstance = Instantiate(_ladder, new Vector3(_rigidBody2D.position.x + transform.localScale.x, _rigidBody2D.position.y, 0), Quaternion.identity);
+            } else {
+                Destroy(ladderInstance);
+                ladderInstance = null;
+            }
         }
     }
 
