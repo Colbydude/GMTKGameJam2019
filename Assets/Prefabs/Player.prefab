@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad7112ed44e6144bae61cbe8e67d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
+  walkSpeed: 5
   jumpSpeed: 7.5
   climbSpeed: 10
+  _deathParticleSystem: {fileID: 0}
 --- !u!50 &1777114687
 Rigidbody2D:
   serializedVersion: 4
