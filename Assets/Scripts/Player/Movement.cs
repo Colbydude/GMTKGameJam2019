@@ -8,11 +8,11 @@ public class Movement : MonoBehaviour
     public float jumpSpeed;
 
     private bool isGrounded = true;
-
+    private Rigidbody2D _rigidBody2D;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
             {
                 isGrounded = false;
                 yDir = jumpSpeed * Input.GetAxis("Jump");
+                _rigidBody2D.velocity += new Vector2(0, yDir);
                 Debug.Log(Input.GetAxis("Jump"));
             }
 
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour
 
         //translate character based on speed
         xDir *= walkSpeed;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(xDir, yDir));
+        _rigidBody2D.velocity = new Vector2(xDir, _rigidBody2D.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
