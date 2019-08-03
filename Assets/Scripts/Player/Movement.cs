@@ -40,7 +40,8 @@ public class Movement : MonoBehaviour
     {
         //todo: better isGrounded detection
         Debug.Log("Player Collided With: " + collision.gameObject.name);
-        isGrounded = true;
+        if (collision.gameObject.tag == "Tilemap_Floor")
+            isGrounded = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
