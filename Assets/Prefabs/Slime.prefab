@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1837353147933925099}
   - component: {fileID: 1837353147933925108}
   - component: {fileID: 1837353147933925097}
-  - component: {fileID: 1837353147933925103}
   - component: {fileID: 1837353147933925096}
+  - component: {fileID: 537197128}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -117,32 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
---- !u!61 &1837353147933925103
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837353147933925109}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.703125, y: 0.5}
-    newSize: {x: 0.703125, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.703125, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!50 &1837353147933925096
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +138,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &537197128
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837353147933925109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0017869459, y: -0.01345879}
+  m_Size: {x: 0.65291435, y: 0.4898569}
+  m_Direction: 1
