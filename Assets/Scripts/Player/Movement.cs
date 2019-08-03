@@ -101,7 +101,7 @@ public class Movement : MonoBehaviour
         float xDir = Input.GetAxis("Horizontal");
 
 
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
