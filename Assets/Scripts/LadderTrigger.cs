@@ -16,7 +16,6 @@ public class LadderTrigger : MonoBehaviour
     public GameObject climbableLadderObject;
     public GameObject bridgeLadderObject;
 
-    public GameObject player;
     public TriggerType triggerType = TriggerType.Ladder;
 
     private SpriteRenderer _renderer;
