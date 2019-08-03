@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 716036490}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 10
   jumpSpeed: 7.5
+  climbSpeed: 10
 --- !u!50 &1777114687
 Rigidbody2D:
   serializedVersion: 4

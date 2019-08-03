@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private bool isClimbing = false;
     private bool isGrounded = true;
 
+    public ParticleSystem _deathParticleSystem;
+
     private Animator _animator;
     private BoxCollider2D _bodyCollider;
     private Rigidbody2D _rigidBody2D;
@@ -31,17 +33,28 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movePlayer();
-        climb();
-        flipSprite();
+        MovePlayer();
+        Climb();
+        FlipSprite();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //todo: better isGrounded detection
         Debug.Log("Player Collided With: " + collision.gameObject.name);
-        if (collision.gameObject.tag == "Tilemap_Floor")
-            isGrounded = true;
+        switch (collision.gameObject.tag)
+        {
+            case "Tilemap_Floor":
+                isGrounded = true;
+                break;
+            case "Tilemap_Damage":
+                KillPlayer();
+                break;
+            case "Enemy":
+                KillPlayer();
+                break;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,7 +74,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void movePlayer()
+    private void MovePlayer()
     {
         //get axis, should work for keyboard or controller
         float xDir = Input.GetAxis("Horizontal");
@@ -82,7 +95,14 @@ public class Movement : MonoBehaviour
         _rigidBody2D.velocity = new Vector2(xDir, _rigidBody2D.velocity.y);
     }
 
-    private void climb()
+    private void KillPlayer()
+    {
+        _deathParticleSystem.transform.position = new Vector2(_rigidBody2D.transform.position.x, _rigidBody2D.transform.position.y);
+        _deathParticleSystem.Play();
+        Destroy(gameObject);
+    }
+
+    private void Climb()
     {
         if (isClimbing) {
             bool playerHasVerticalSpeed = Mathf.Abs(_rigidBody2D.velocity.y) > Mathf.Epsilon;
@@ -101,7 +121,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void flipSprite()
+    private void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(_rigidBody2D.velocity.x) > Mathf.Epsilon;
 
