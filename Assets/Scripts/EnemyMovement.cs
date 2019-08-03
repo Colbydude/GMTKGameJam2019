@@ -24,6 +24,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
+        //check to see if he's stuck against a wall, and flip direction if so
+        //== should compare approximately
+        if (Vector2.zero == _RigidBody.velocity)
+            moveSpeed *= -1;
+
         _RigidBody.velocity = new Vector2(moveSpeed, _RigidBody.velocity.y);
 
         if (_RigidBody.velocity.x > 0) {
