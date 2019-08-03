@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6447120790971561534}
   - component: {fileID: 1777114687}
   - component: {fileID: 891806161}
+  - component: {fileID: 696725629}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -137,3 +138,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49235737, y: -0.5165415}
   - {x: 0.49235743, y: -0.5165415}
+--- !u!95 &696725629
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486417391676972167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fddef5c875bfc3445948f294773c1f31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -28,8 +28,9 @@ public class MoveToPosition : MonoBehaviour
     {
         Debug.Log("Collided With: " + collider.gameObject.name);
 
-        Transform playerTransform = collider.gameObject.GetComponent<Transform>();
-        playerTransform.position = new Vector3(xPosition, yPosition, 0);
+        Rigidbody2D playerRigidBody = collider.gameObject.GetComponent<Rigidbody2D>();
+        playerRigidBody.position = new Vector2(xPosition, yPosition);
+        playerRigidBody.velocity = new Vector2(0, 0);
 
         if (sceneToGoTo != null && !SceneManager.GetActiveScene().Equals(sceneToGoTo)) {
             SceneManager.LoadScene(sceneToGoTo.name);
