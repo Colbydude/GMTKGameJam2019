@@ -28,6 +28,11 @@ public class Movement : MonoBehaviour
 
         //translate character based on speed
         xDir *= (walkSpeed * Time.deltaTime);
-        transform.Translate(xDir, yDir, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector3(xDir, yDir, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision);
     }
 }
