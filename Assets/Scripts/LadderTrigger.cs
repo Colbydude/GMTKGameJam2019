@@ -62,6 +62,6 @@ public class LadderTrigger : MonoBehaviour
             break;
         }
 
-        return Instantiate(ladderObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        return Instantiate(ladderObject, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
     }
 }
