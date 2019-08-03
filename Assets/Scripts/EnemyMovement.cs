@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
-        _RigidBody.velocity = new Vector2(moveSpeed, 0f);
+        _RigidBody.velocity = new Vector2(moveSpeed, _RigidBody.velocity.y);
 
         if (_RigidBody.velocity.x > 0) {
             transform.localScale = new Vector2(-1f, 1f);
