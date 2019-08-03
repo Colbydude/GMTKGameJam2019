@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 0}
   textVal: Press 'X' to Sausage
-  transitionTime: 1
+  transitionTime: 0.5
 --- !u!50 &3336749684037779601
 Rigidbody2D:
   serializedVersion: 4

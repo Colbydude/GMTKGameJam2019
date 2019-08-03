@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - LadderTrigger
   - Climbable
+  - ThrowableLadder
   layers:
   - Default
   - TransparentFX

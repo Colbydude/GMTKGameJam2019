@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad7112ed44e6144bae61cbe8e67d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 3
   jumpSpeed: 7.5
   climbSpeed: 10
   ladderInstance: {fileID: 0}

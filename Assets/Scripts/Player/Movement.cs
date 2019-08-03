@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float walkSpeed = 10f;
     public float jumpSpeed = 10f;
     public float climbSpeed = 10f;
+    public GameObject ladderObject;
     public GameObject ladderInstance = null;
     public ParticleSystem deathParticleSystem;
 
@@ -158,6 +159,23 @@ public class Movement : MonoBehaviour
                 LadderTrigger trigger = ladderTriggerInRange.GetComponent<LadderTrigger>();
                 ladderInstance = trigger.spawnLadder();
             } else {
+                // "Recall" the ladder.
+                Debug.Log("Destroying...");
+                Destroy(ladderInstance);
+                ladderInstance = null;
+            }
+        }
+
+        //Throw the ladder
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (ladderInstance == null)
+            {
+                ladderInstance = Instantiate(ladderObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
+                ladderInstance.gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(10, 1);
+            }
+            else
+            {
                 // "Recall" the ladder.
                 Debug.Log("Destroying...");
                 Destroy(ladderInstance);
