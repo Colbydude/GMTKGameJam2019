@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
 
     private float animSpeedAtStart;
     private float gravityScaleAtStart;
+    private bool isAttacking = false;
     private bool isClimbing = false;
     private bool isGrounded = true;
     public GameObject ladderTriggerInRange;
@@ -21,6 +22,7 @@ public class Movement : MonoBehaviour
     // Component references.
     private Animator _animator;
     private BoxCollider2D _bodyCollider;
+    private PolygonCollider2D _hurtBox;
     private Rigidbody2D _rigidBody2D;
     private SpriteRenderer _sprite;
 
@@ -29,11 +31,14 @@ public class Movement : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _bodyCollider = GetComponent<BoxCollider2D>();
+        _hurtBox = this.GetComponentInChildren<PolygonCollider2D>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
 
         animSpeedAtStart = _animator.speed;
         gravityScaleAtStart = _rigidBody2D.gravityScale;
+
+        _hurtBox.enabled = false;
     }
 
     // Update is called once per frame
@@ -73,7 +78,11 @@ public class Movement : MonoBehaviour
                 }
                 else
                 {
-                    KillPlayer();
+                    if (isAttacking) {
+                        Destroy(collision.gameObject);
+                    } else {
+                        KillPlayer();
+                    }
                 }
                 break;
         }
@@ -153,7 +162,12 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetButtonDown("Action")) {
             if (ladderInstance == null && ladderTriggerInRange == null) {
-                // @TODO: Swing ladder as a weapon.
+                // Swing ladder as a weapon.
+                _animator.Play("PlayerAttack");
+                _rigidBody2D.velocity = new Vector2(0, 0);
+                isAttacking = true;
+                _hurtBox.enabled = true;
+
             } else if (ladderInstance == null && ladderTriggerInRange != null) {
                 // Spawn ladder in context space.
                 LadderTrigger trigger = ladderTriggerInRange.GetComponent<LadderTrigger>();
@@ -191,7 +205,7 @@ public class Movement : MonoBehaviour
         if (playerHasHorizontalSpeed) {
             transform.localScale = new Vector2(Mathf.Sign(_rigidBody2D.velocity.x), transform.localScale.y);
 
-            if (!isClimbing) {
+            if (!isClimbing && !isAttacking) {
                 if (ladderInstance != null) {
                     _animator.Play("PlayerMove");
                 } else {
@@ -199,9 +213,17 @@ public class Movement : MonoBehaviour
                 }
             }
         } else {
-            if (!isClimbing) {
+            if (!isClimbing && !isAttacking) {
                 _animator.Play("PlayerIdle");
             }
+        }
+    }
+
+    public void AlertObservers(string message)
+    {
+        if (message.Equals("AttackAnimationEnded")) {
+            isAttacking = false;
+            _hurtBox.enabled = false;
         }
     }
 }
