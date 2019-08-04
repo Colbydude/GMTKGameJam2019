@@ -168,15 +168,15 @@ public class Movement : MonoBehaviour
                 isAttacking = true;
                 _hurtBox.enabled = true;
 
-            } else if (ladderInstance == null && ladderTriggerInRange != null) {
+            } else if (ladderTriggerInRange != null) {
+                if (ladderInstance != null)
+                    RecallLadder();
+
                 // Spawn ladder in context space.
                 LadderTrigger trigger = ladderTriggerInRange.GetComponent<LadderTrigger>();
                 ladderInstance = trigger.spawnLadder();
-            } else {
-                // "Recall" the ladder.
-                Debug.Log("Destroying...");
-                Destroy(ladderInstance);
-                ladderInstance = null;
+            } else if (ladderInstance != null) {
+                RecallLadder();
             }
         }
 
@@ -190,12 +190,17 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                // "Recall" the ladder.
-                Debug.Log("Destroying...");
-                Destroy(ladderInstance);
-                ladderInstance = null;
+                RecallLadder();
             }
         }
+    }
+
+    private void RecallLadder()
+    {
+        // "Recall" the ladder.
+        Debug.Log("Destroying...");
+        Destroy(ladderInstance);
+        ladderInstance = null;
     }
 
     private void FlipSprite()
