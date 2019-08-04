@@ -172,7 +172,7 @@ public class Movement : MonoBehaviour
             if (ladderInstance == null)
             {
                 ladderInstance = Instantiate(ladderObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(new Vector3(0, 0, 90)));
-                ladderInstance.gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(10, 1);
+                ladderInstance.gameObject.GetComponent<Rigidbody2D>().velocity += _rigidBody2D.transform.localScale * new Vector2(10, 1);
             }
             else
             {
