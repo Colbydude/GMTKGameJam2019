@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class PressButton : MonoBehaviour
 {
     public Vector3Int[] positionArray;
-    public TileBase[] tileArray;
+    public TileBase[] tileArrayOn;
+    public TileBase[] tileArrayOff;
     public Tilemap tileMap;
     public Sprite pressedSprite;
 
@@ -19,8 +20,6 @@ public class PressButton : MonoBehaviour
     {
         _renderer = GetComponent<SpriteRenderer>();
         _defaultSprite = _renderer.sprite;
-
-        nullTiles = new TileBase[tileArray.Length];
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class PressButton : MonoBehaviour
         if (collision.gameObject.tag == "ThrowableLadder")
         {
             _renderer.sprite = pressedSprite;
-            tileMap.SetTiles(positionArray, tileArray);
+            tileMap.SetTiles(positionArray, tileArrayOn);
         }
     }
 
@@ -43,7 +42,7 @@ public class PressButton : MonoBehaviour
         if (collision.gameObject.tag == "ThrowableLadder")
         {
             _renderer.sprite = _defaultSprite;
-            tileMap.SetTiles(positionArray, nullTiles);
+            tileMap.SetTiles(positionArray, tileArrayOff);
         }
     }
 }
