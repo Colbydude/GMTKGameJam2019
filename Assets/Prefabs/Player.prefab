@@ -100,6 +100,7 @@ MonoBehaviour:
   walkSpeed: 3
   jumpSpeed: 7.5
   climbSpeed: 10
+  ladderObject: {fileID: 0}
   ladderInstance: {fileID: 0}
   deathParticleSystem: {fileID: 6486591310745657390, guid: 4b4f28285d2baca4583db6b9da2b88c2,
     type: 3}
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8d76036b48cb84d4c9faa1dc02ad9a5a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -153,7 +154,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2486417391676972167}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8d76036b48cb84d4c9faa1dc02ad9a5a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

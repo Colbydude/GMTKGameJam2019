@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
         Debug.Log("Player Collided With: " + collision.gameObject.name);
         switch (collision.gameObject.tag)
         {
-            case "Ladder":
+            case "ThrowableLadder":
                 isGrounded = true;
                 break;
             case "Tilemap_Floor":
