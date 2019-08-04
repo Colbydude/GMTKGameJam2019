@@ -15,6 +15,7 @@ public class PressButton : MonoBehaviour
     private Sprite _defaultSprite;
     private TileBase[] nullTiles;
     private SpriteRenderer _renderer;
+    private float exitTime = 0;
 
     // Start is called before the first frame
     void Start()
@@ -23,7 +24,13 @@ public class PressButton : MonoBehaviour
         _defaultSprite = _renderer.sprite;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == collidableTag)
         {
@@ -32,7 +39,7 @@ public class PressButton : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == collidableTag)
         {
