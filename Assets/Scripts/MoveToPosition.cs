@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MoveToPosition : MonoBehaviour
 {
-    public Object sceneToGoTo = null;
+    public int sceneToGoTo;
     public float xPosition = 0;
     public float yPosition = 0;
 
@@ -20,8 +20,6 @@ public class MoveToPosition : MonoBehaviour
         playerRigidBody.position = new Vector2(xPosition, yPosition);
         playerRigidBody.velocity = new Vector2(0, 0);
 
-        if (sceneToGoTo != null && !SceneManager.GetActiveScene().Equals(sceneToGoTo)) {
-            SceneManager.LoadScene(sceneToGoTo.name);
-        }
+        SceneManager.LoadScene(sceneToGoTo);
     }
 }
