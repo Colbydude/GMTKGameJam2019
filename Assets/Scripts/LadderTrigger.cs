@@ -35,14 +35,6 @@ public class LadderTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player") {
             _renderer.enabled = true;
         }
-
-        if (collider.gameObject.tag == "ThrowableLadder") {
-            Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-
-            Destroy(collider.gameObject);
-
-            player.ladderInstance = spawnLadder();
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collider)

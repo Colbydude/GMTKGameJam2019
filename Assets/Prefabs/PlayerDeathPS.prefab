@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6486591310745657391}
   - component: {fileID: 6486591310745657390}
   - component: {fileID: 6486591310745657389}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: PlayerDeathPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
