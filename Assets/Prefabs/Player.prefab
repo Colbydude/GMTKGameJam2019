@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7002175558772483684}
   - component: {fileID: 9014756661429802027}
-  - component: {fileID: 6447120790971561534}
   - component: {fileID: 1777114687}
   - component: {fileID: 696725629}
   - component: {fileID: 716036490}
+  - component: {fileID: 5569364168529289814}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -86,26 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6447120790971561534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2486417391676972167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ad7112ed44e6144bae61cbe8e67d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 3
-  jumpSpeed: 7.5
-  climbSpeed: 10
-  ladderObject: {fileID: 0}
-  ladderInstance: {fileID: 0}
-  deathParticleSystem: {fileID: 6486591310745657390, guid: 4b4f28285d2baca4583db6b9da2b88c2,
-    type: 3}
-  ladderTriggerInRange: {fileID: 0}
 --- !u!50 &1777114687
 Rigidbody2D:
   serializedVersion: 4
@@ -172,6 +152,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81139493, y: 1.3222349}
   m_EdgeRadius: 0
+--- !u!114 &5569364168529289814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2486417391676972167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1876952edff6547bcde2cc3afc1e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  jumpSpeed: 7.5
+  climbSpeed: 10
+  ladderObject: {fileID: 6295860601777465025, guid: 0ebe2a6bb2a75be40a766c9fd0724b0e,
+    type: 3}
+  ladderInstance: {fileID: 0}
+  deathParticleSystem: {fileID: 6486591310745657390, guid: 4b4f28285d2baca4583db6b9da2b88c2,
+    type: 3}
+  ladderTriggerInRange: {fileID: 0}
 --- !u!1 &6871324790011900444
 GameObject:
   m_ObjectHideFlags: 0
