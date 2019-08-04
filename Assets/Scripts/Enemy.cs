@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public ParticleSystem deathParticleSystem;
+    public int moveDirection = 1;
 
     BoxCollider2D _bodyCollider2D;
     Rigidbody2D _rigidBody;
@@ -41,9 +42,9 @@ public class Enemy : MonoBehaviour
         //check to see if he's stuck against a wall, and flip direction if so
         //== should compare approximately
         if (Vector2.zero == _rigidBody.velocity)
-            moveSpeed *= -1;
+            moveDirection *= -1;
 
-        _rigidBody.velocity = new Vector2(moveSpeed, _rigidBody.velocity.y);
+        _rigidBody.velocity = new Vector2(moveSpeed * moveDirection, _rigidBody.velocity.y);
 
         if (_rigidBody.velocity.x > 0) {
             transform.localScale = new Vector2(-1f, 1f);

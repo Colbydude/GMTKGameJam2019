@@ -10,27 +10,22 @@ public class PressButton : MonoBehaviour
     public TileBase[] tileArrayOff;
     public Tilemap tileMap;
     public Sprite pressedSprite;
+    public string collidableTag = "ThrowableLadder";
 
     private Sprite _defaultSprite;
     private TileBase[] nullTiles;
     private SpriteRenderer _renderer;
 
-    // Start is called before the first frame 
+    // Start is called before the first frame
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
         _defaultSprite = _renderer.sprite;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ThrowableLadder")
+        if (collision.gameObject.tag == collidableTag)
         {
             _renderer.sprite = pressedSprite;
             tileMap.SetTiles(positionArray, tileArrayOn);
@@ -39,7 +34,7 @@ public class PressButton : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ThrowableLadder")
+        if (collision.gameObject.tag == collidableTag)
         {
             _renderer.sprite = _defaultSprite;
             tileMap.SetTiles(positionArray, tileArrayOff);
