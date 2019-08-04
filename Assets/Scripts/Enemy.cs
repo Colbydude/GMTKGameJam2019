@@ -23,6 +23,19 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Tilemap_Damage") {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        ParticleSystem particleSystem = Instantiate(deathParticleSystem, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity);
+        particleSystem.Play();
+    }
+
     void Move()
     {
         //check to see if he's stuck against a wall, and flip direction if so
@@ -37,11 +50,5 @@ public class Enemy : MonoBehaviour
         } else {
             transform.localScale = new Vector2(1f, 1f);
         }
-    }
-
-    private void OnDestroy()
-    {
-        ParticleSystem particleSystem = Instantiate(deathParticleSystem, new Vector3(_rigidBody.position.x, _rigidBody.position.y, 0), Quaternion.identity);
-        particleSystem.Play();
     }
 }
