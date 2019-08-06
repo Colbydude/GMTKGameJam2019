@@ -72363,10 +72363,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 66.90495, y: 7.8660502}
-      - {x: -12.822209, y: 7.896644}
-      - {x: -12.900937, y: -7.917994}
-      - {x: 66.88283, y: -7.9188023}
+    - - {x: 23.857067, y: 10.9407425}
+      - {x: -12.871175, y: 10.981255}
+      - {x: -12.900937, y: -8.9461975}
+      - {x: 23.89413, y: -8.995968}
 --- !u!4 &284755534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1837353147933925098, guid: 9bd1c091e2737fb4b9db40cf00e1aec9,
@@ -72677,7 +72677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377457712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1745338, y: -1.9179945, z: -10}
+  m_LocalPosition: {x: -4.841201, y: -1.9182916, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1147141021}
@@ -72733,8 +72733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 64
-  m_RefResolutionX: 960
-  m_RefResolutionY: 540
+  m_RefResolutionX: 1024
+  m_RefResolutionY: 768
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
